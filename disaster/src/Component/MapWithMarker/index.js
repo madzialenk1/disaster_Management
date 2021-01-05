@@ -1,22 +1,36 @@
 import React from "react";
 import { useGoogleMaps } from "react-hook-google-maps";
+import "./Style.css"
 
 const uluru = { lat: 52.237049, lng: 21.017532 };
-const coo = { lat: 51.759445, lng: 19.457216};
+let adress = "Prasowa 29 Warsaw";
+
 
 export const MapWithMarker = React.memo(function Map() {
   const { ref, map, google } = useGoogleMaps(
-    "AIzaSyBL6xBj2jWN1nquJ7qlIkyZBLKFbTrXQEw",
+    "AIzaSyBkz_rtiTK4wHl18HUy_BnjmKnMEn4FxRw",
     {
       zoom: 4,
       center: uluru,
     },
   );
 
-  if (map) {
+  const geocoder = new window.google.maps.Geocoder();
 
-    new google.maps.Marker({ position: uluru, map });
-    new google.maps.Marker({position:coo,map});
+  
+  if (map) {
+    geocoder.geocode({address: adress}, (results, status) => {
+      if(status === "OK") {
+        new window.google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location,
+  
+        });
+      } else {
+        alert("Something is wrong" + status);
+       }
+      }
+    );
   }
 
   return (
