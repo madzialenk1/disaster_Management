@@ -8,9 +8,9 @@ import {TableSOS} from "../TableSOS";
 function renderSwitch(param){
     switch(param) {
         case "Victims":
-            return <TableFirst />;
+            return <TableVictims />;
         case "SOS":
-            return <TableSecond />;
+            return <TableSOS />;
         case "All":
             return <TableAll />;
     }

@@ -20,4 +20,4 @@ function AppRescue() {
   );
 }
 
-export default App;
+export default AppRescue;
