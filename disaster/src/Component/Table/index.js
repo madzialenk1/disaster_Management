@@ -1,12 +1,12 @@
 import react from 'react'
 import { TableAll } from '../TableAll';
-import {TableVictims} from "../TableVictims";
-import {TableSOS} from "../TableSOS";
+import { TableVictims } from "../TableVictims";
+import { TableSOS } from "../TableSOS";
 
 
- 
-function renderSwitch(param){
-    switch(param) {
+
+function renderSwitch(param) {
+    switch (param) {
         case "Victims":
             return <TableVictims />;
         case "SOS":
@@ -16,11 +16,11 @@ function renderSwitch(param){
     }
 }
 
-export const Table = (props) =>{
+export const Table = (props) => {
 
     return (
         <div>
-           {renderSwitch(props.isClicked)}
+            {renderSwitch(props.isClicked)}
         </div>
 
     );

@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Style.css"
 import { Table } from "../Table";
 
 export const ButtonTable = () => {
-    const [buttonClicked, setButtonClicked] = useState("All");
-  
+  const [buttonClicked, setButtonClicked] = useState("All");
 
-  const buttonPressed=(e)=> {
-    switch(e.target.name){
+
+  const buttonPressed = (e) => {
+    switch (e.target.name) {
       case "All":
         setButtonClicked("All");
         break;
@@ -19,14 +19,14 @@ export const ButtonTable = () => {
         break;
     }
   }
-    return (
+  return (
     <div>
-     <Table isClicked = {buttonClicked} />
-     <div class="multi-button">
+      <div class="multi-button">
         <button name="Victims" onClick={buttonPressed}>Victims</button>
         <button name="All" onClick={buttonPressed}>All</button>
         <button name="SOS" onClick={buttonPressed}>SOS</button>
-    </div> 
+      </div>
+      <Table isClicked={buttonClicked} />
     </div>
-    );
+  );
 }

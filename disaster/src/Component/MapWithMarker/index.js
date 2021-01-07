@@ -17,19 +17,19 @@ export const MapWithMarker = React.memo(function Map() {
 
   const geocoder = new window.google.maps.Geocoder();
 
-  
+
   if (map) {
-    geocoder.geocode({address: adress}, (results, status) => {
-      if(status === "OK") {
+    geocoder.geocode({ address: adress }, (results, status) => {
+      if (status === "OK") {
         new window.google.maps.Marker({
           map: map,
           position: results[0].geometry.location,
-  
+
         });
       } else {
         alert("Something is wrong" + status);
-       }
       }
+    }
     );
   }
 

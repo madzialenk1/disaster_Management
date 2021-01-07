@@ -1,26 +1,21 @@
 import React from 'react';
 import MaterialTable from 'material-table';
-
+import sosColumns from './sosColumns';
+import sosData from './sosData';
 export const TableSOS = () => {
-  const dataI = [
-    { location: "Madzia",ipAddress:"111223454",message:"hej"},
-    { location: "Prasowa",ipAddress:"73828382",message:"umieram help"}
-  ];
-  const columns = [
-    { title: "Location", field: "location" },
-    { title: "IpAddress", field: "ipAddress" },
-    { title: "Message", field: "message" }
-  ];
+
   return (
     <div>
-      <MaterialTable title="SOS" data={dataI} columns={columns} options={
-          {search: false,
+      <MaterialTable title="SOS" data={sosData} columns={sosColumns} options={
+        {
+          search: false,
           paging: false,
           selection: true,
           headerStyle: {
             backgroundColor: '#84221C',
             color: '#FFF'
-          }}
+          }
+        }
       } />
     </div>
   );
