@@ -8,6 +8,9 @@ import "./AppRescue.css"
 
 
 function AppRescue() {
+
+  const [message, setMessage]= useState("");
+
   return (
     <div>
       <div class="topnav">
@@ -15,12 +18,12 @@ function AppRescue() {
         <a href="#back" >Back</a>
         <a href="#user" >User</a>
       </div>
-      <ButtonTable />
+      <ButtonTable val={message} />
       <div class="lol">
         <div class="map"><MapWithMarker /></div>
       </div>
       <div class="content">
-        <div class="left"><Message /></div>
+        <div class="left"><Message val={message} setVal={setMessage} /></div>
         <div class="right"><div> <div class="vertical-center"><ToggleSwitch /><ToggleSwitch /></div></div>
         </div>
       </div>
