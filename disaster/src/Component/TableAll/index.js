@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import MaterialTable from "material-table";
-import allData from "./allData";
-import allColumns from "./allColumns";
 
-export const TableAll = () => {
+
+export const TableAll = (props) => {
+
+  const handleSelection = () => {
+
+  }
 
   return (
     <div>
-      <MaterialTable title="Type of emergency" data={allData} columns={allColumns} options={
+      <MaterialTable title={props.isClicked} data={props.data} columns={props.columns} options={
         {
           search: false,
           paging: false,
@@ -17,7 +20,9 @@ export const TableAll = () => {
             color: '#FFF'
           }
         }
-      } />
+      }
+      onSelectionChange={(rows) => alert(props.messageTo)}
+       />
     </div>
   );
 };
