@@ -21,20 +21,18 @@ function AppRescue() {
         <a href="#back" >Back</a>
         <a href="#user" >User</a>
       </div>
-      
       <ButtonTable messageTo = {message} />
       <div class="lol">
-        <div class="map"><MapWithMarker /></div>
+        <MapWithMarker />
       </div>
       <div class="content">
         <div class="left">
         <Message />
           </div>
-         
-        <div class="right"><div> <div class="vertical-center"><ToggleSwitch /><ToggleSwitch /></div></div>
+        <div class="right"><div> <ToggleSwitch title="Switch to light up" /><ToggleSwitch title="Switch to call everyone" /></div></div>
         </div>
       </div>
-    </div>
+    
     </ThemeContext.Provider>
   );
 }

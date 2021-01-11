@@ -9,10 +9,7 @@ import sosData from "../TableAll/sosData";
 import sosColumns from "../TableAll/sosColumns";
 
 
-export const ButtonTable = () => {
-  const [buttonClicked, setButtonClicked] = useState("Type of Emergency");
-  const [tableName, setTableName] = useState(allData);
-  const [tableColumns, setTableColumns] = useState(allColumns);
+
 
 export const ButtonTable = (props) => {
   const [buttonClicked, setButtonClicked] = useState("Type of Emergency");
@@ -53,4 +50,4 @@ export const ButtonTable = (props) => {
       />
     </div>
   );
-  }}
+  }

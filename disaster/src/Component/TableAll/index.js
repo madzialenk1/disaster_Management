@@ -5,12 +5,14 @@ import MaterialTable from "material-table";
 export const TableAll = (props) => {
 
   const handleSelection = () => {
-
+    
+    props.data[0].messageTo = props.messageTo;
+    alert(props.data[0].messageTo);
   }
 
   return (
     <div>
-      <MaterialTable title={props.isClicked} data={props.data} columns={props.columns} options={
+      <MaterialTable title={props.messageTo} data={props.data} columns={props.columns} options={
         {
           search: false,
           paging: false,
@@ -21,7 +23,7 @@ export const TableAll = (props) => {
           }
         }
       }
-      onSelectionChange={(rows) => alert(props.messageTo)}
+      onSelectionChange={(rowData) => handleSelection()}
        />
     </div>
   );

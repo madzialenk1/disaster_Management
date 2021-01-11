@@ -1,6 +1,7 @@
 
 /* The popup chat - hidden by default */
 .form-popup {
+  background-color: cadetblue;
   display: none;
   position: relative;
   bottom: 0;
@@ -8,24 +9,41 @@
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
-
+.chat-popup{
+  background-color: none;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
-  padding: 10px;
- 
+  margin-top: 40px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+/* Label */
+  #label-msg {
+  
+  color: white;
+  font-size: 20px;
+  
+  
+  
 }
 
 /* Full-width textarea */
 .form-container textarea {
-  width: 100%;
+  width: 75%;
   padding: 15px;
-  margin: 20px 0 22px 50px;
   border: none;
   border-radius: 20px;
   background: #f1f1f1;
-  resize: none;
   min-height: 200px;
+  margin:20px 0;
+  
+  
 }
 
 /* When the textarea gets focus, do something */
@@ -42,9 +60,10 @@
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  width: 100%;
-  margin-left: 50px;
-  margin-bottom:10px;
+  width: 50%;
+  left: 50%;
+  
+  
   opacity: 0.8;
 }
 

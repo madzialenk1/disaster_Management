@@ -34,8 +34,7 @@ export const MapWithMarker = React.memo(function Map() {
   }
 
   return (
-    <div>
-      <div ref={ref} style={{ width: 400, height: 300 }} />
-    </div>
+      
+      <div ref={ref} class= "map-map"  />
   );
 });
