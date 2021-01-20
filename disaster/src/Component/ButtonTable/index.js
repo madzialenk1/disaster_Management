@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Style.css"
 import { TableAll } from "../TableAll";
 import allData from "../TableAll/allData";
@@ -7,6 +7,7 @@ import victimsColumns from "../TableAll/victimsColumns";
 import victimsData from "../TableAll/victimsData";
 import sosData from "../TableAll/sosData";
 import sosColumns from "../TableAll/sosColumns";
+import VictimService from "src/ApiService/VictimService";
 
 
 
@@ -15,7 +16,8 @@ export const ButtonTable = (props) => {
   const [buttonClicked, setButtonClicked] = useState("Type of Emergency");
   const [tableName, setTableName] = useState(allData);
   const [tableColumns, setTableColumns] = useState(allColumns);
-
+ 
+  const [allXData, setAllData]= useState(null)
   const buttonPressed = (e) => {
     switch (e.target.name) {
       case "All":
@@ -35,6 +37,15 @@ export const ButtonTable = (props) => {
         break;
     }
   }
+    useEffect( ()=> {
+          VictimService.getVictims((response) => {
+            setAllData(response.data)
+            console.log(response)
+          }
+        )
+       }
+    );
+  
   return (
     <div>
       <div class="multi-button">
