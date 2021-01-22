@@ -4,10 +4,9 @@ import { TableAll } from "../TableAll";
 import allData from "../TableAll/allData";
 import allColumns from "../TableAll/allColumns";
 import victimsColumns from "../TableAll/victimsColumns";
-import victimsData from "../TableAll/victimsData";
-import sosData from "../TableAll/sosData";
 import sosColumns from "../TableAll/sosColumns";
 import VictimService from "src/ApiService/VictimService";
+import SosService from "src/ApiService/SosService";
 
 
 
@@ -15,9 +14,10 @@ import VictimService from "src/ApiService/VictimService";
 export const ButtonTable = (props) => {
   const [buttonClicked, setButtonClicked] = useState("Type of Emergency");
   const [tableName, setTableName] = useState(allData);
+  const [sosTable, setSosTable] = useState([]);
+  const [victimTable, setVictimTable] = useState([]);
   const [tableColumns, setTableColumns] = useState(allColumns);
- 
-  const [allXData, setAllData]= useState(null)
+
   const buttonPressed = (e) => {
     switch (e.target.name) {
       case "All":
@@ -28,24 +28,34 @@ export const ButtonTable = (props) => {
       case "Victims":
         setButtonClicked("Victims");
         setTableColumns(victimsColumns);
-        setTableName(victimsData);
+        setTableName(victimTable);
         break;
       case "SOS":
         setButtonClicked("SOS");
         setTableColumns(sosColumns);
-        setTableName(sosData);
+        setTableName(sosTable);
         break;
+      default:
+        setButtonClicked("All");
+        setTableColumns(allColumns);
+        setTableName(allData);
+
     }
   }
-    useEffect( ()=> {
-          VictimService.getVictims((response) => {
-            setAllData(response.data)
-            console.log(response)
-          }
-        )
-       }
-    );
-  
+  useEffect(() => {
+    VictimService.getVictims().then(response => {
+      setVictimTable(response.data);
+
+    });
+
+    SosService.getSos().then(response => {
+      setSosTable(response.data);
+    });
+
+  }, []
+  );
+
+
   return (
     <div>
       <div class="multi-button">
@@ -61,4 +71,4 @@ export const ButtonTable = (props) => {
       />
     </div>
   );
-  }
+}
